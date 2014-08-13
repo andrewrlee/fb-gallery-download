@@ -18,7 +18,7 @@ This will execute the following code:
 ```clojure
 (traverse get-album-info albums-base-url #(println %))
 ```
-which will print out galley information in the following format:
+which will print out gallery information in the following format:
 
 ```clojure
 {:name South Korea, :id 10159121927391999}
