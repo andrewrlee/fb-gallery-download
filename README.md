@@ -13,7 +13,7 @@ You can create authentication tokens easily from [here](https://developers.faceb
 
 To download a gallery you first need to find it's id. You can list all galleries and their id's by running the project: `lein run`: 
 
-This will execute the following code.
+This will execute the following code:
 
 ```clojure
 (traverse get-album-info albums-base-url #(println %))
@@ -29,7 +29,7 @@ which will print out galley information in the following format:
 ...
 ```
 
-After this you can find the links of all the photos in a specific gallery:
+You can use this information to find the links of all the photos in a specific gallery:
 
 ```clojure
  (traverse get-picture-info (pictures-base-url 10159121927391999) #(println %))
@@ -50,6 +50,7 @@ Or even download them:
        #(do (println %)
             (copy % (io/file "/tmp/test" (str (System/nanoTime) ".jpg" )))))
 ```
+Facebook makes the images available in multiple sizes - the code will return information about the first version available which is probably the largest - though the image resolutions are avaliable so we could find this out in a more safe way.
 
 Obviously a small bit of extra work would allow me to automate it fully and I could also go on to create a friendlier CLI interface. 
 
